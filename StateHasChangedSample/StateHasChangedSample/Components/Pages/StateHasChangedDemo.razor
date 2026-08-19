@@ -1,0 +1,96 @@
+﻿@page "/statehaschangeddemo"
+@rendermode InteractiveServer
+@implements IDisposable
+
+<PageTitle>StateHasChanged analyzer validation</PageTitle>
+
+<h1><code>StateHasChanged</code> analyzer validation</h1>
+
+<dl>
+    <dt>Synchronous event handler</dt>
+    <dd role="status">@eventHandlerStatus</dd>
+    <dt><code>OnInitialized</code></dt>
+    <dd role="status">@onInitializedStatus</dd>
+    <dt><code>OnInitializedAsync</code></dt>
+    <dd role="status">@onInitializedAsyncStatus</dd>
+    <dt><code>OnParametersSetAsync</code></dt>
+    <dd role="status">@onParametersSetAsyncStatus</dd>
+    <dt>Intermediate async phase</dt>
+    <dd role="status">@asyncPhaseStatus</dd>
+    <dt>External timer callback</dt>
+    <dd role="status">@timerTickCount ticks</dd>
+</dl>
+
+<button class="btn btn-primary me-2" @onclick="RunSynchronousEventHandler">
+    Run synchronous handler
+</button>
+<button class="btn btn-secondary" @onclick="RunAsyncPhases">
+    Run async phases
+</button>
+
+@code {
+    private readonly System.Timers.Timer timer = new(1000);
+    private string eventHandlerStatus = "Not run";
+    private string onInitializedStatus = "Not run";
+    private string onInitializedAsyncStatus = "Not run";
+    private string onParametersSetAsyncStatus = "Not run";
+    private string asyncPhaseStatus = "Not run";
+    private int timerTickCount;
+
+    protected override void OnInitialized()
+    {
+        onInitializedStatus = "Completed";
+        StateHasChanged();
+
+        timer.Elapsed += OnTimerElapsed;
+        timer.Start();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        onInitializedAsyncStatus = "Started";
+        StateHasChanged();
+
+        await Task.Delay(100);
+        onInitializedAsyncStatus = "Completed";
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await Task.Delay(100);
+
+        onParametersSetAsyncStatus = "Completed";
+        StateHasChanged();
+    }
+
+    private void RunSynchronousEventHandler()
+    {
+        eventHandlerStatus = $"Completed at {DateTime.Now:T}";
+        StateHasChanged();
+    }
+
+    private async Task RunAsyncPhases()
+    {
+        asyncPhaseStatus = "Waiting for phase one";
+
+        await Task.Delay(1000);
+        asyncPhaseStatus = "Phase one completed";
+        StateHasChanged();
+
+        await Task.Delay(1000); // Commenting this line will negate the case - Adding a second await to a method that had one, to see the warning disappear where the call becomes necessary.
+        asyncPhaseStatus = "All phases completed";
+        //StateHasChanged();  //For the additional check case - Moving the call from 
+                            //between two awaits to after the final await produces BL0012
+    }
+
+    private void OnTimerElapsed(object? sender, System.Timers.ElapsedEventArgs eventArgs)
+    {
+        _ = InvokeAsync(() =>
+        {
+            timerTickCount++;
+            StateHasChanged();
+        });
+    }
+
+    public void Dispose() => timer.Dispose();
+}
