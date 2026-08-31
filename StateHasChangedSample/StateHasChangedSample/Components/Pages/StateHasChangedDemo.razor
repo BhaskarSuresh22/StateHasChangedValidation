@@ -71,10 +71,10 @@
 
         await Task.Delay(1000);
         asyncPhaseStatus = "Phase one completed";
+        StateHasChanged();
 
         await Task.Delay(1000);
         asyncPhaseStatus = "All phases completed";
-        StateHasChanged();
     }
 
     private void OnTimerElapsed(object? sender, System.Timers.ElapsedEventArgs eventArgs)
