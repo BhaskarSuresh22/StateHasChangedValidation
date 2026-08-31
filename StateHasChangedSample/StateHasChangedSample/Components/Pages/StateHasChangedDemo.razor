@@ -40,7 +40,6 @@
     protected override void OnInitialized()
     {
         onInitializedStatus = "Completed";
-        StateHasChanged();
 
         timer.Elapsed += OnTimerElapsed;
         timer.Start();
@@ -49,7 +48,6 @@
     protected override async Task OnInitializedAsync()
     {
         onInitializedAsyncStatus = "Started";
-        StateHasChanged();
 
         await Task.Delay(100);
         onInitializedAsyncStatus = "Completed";
@@ -60,13 +58,11 @@
         await Task.Delay(100);
 
         onParametersSetAsyncStatus = "Completed";
-        StateHasChanged();
     }
 
     private void RunSynchronousEventHandler()
     {
         eventHandlerStatus = $"Completed at {DateTime.Now:T}";
-        StateHasChanged();
     }
 
     private async Task RunAsyncPhases()
