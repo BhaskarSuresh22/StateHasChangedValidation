@@ -77,10 +77,8 @@
         asyncPhaseStatus = "Phase one completed";
         StateHasChanged();
 
-        await Task.Delay(1000); // Commenting this line will negate the case - Adding a second await to a method that had one, to see the warning disappear where the call becomes necessary.
+        await Task.Delay(1000);
         asyncPhaseStatus = "All phases completed";
-        //StateHasChanged();  //For the additional check case - Moving the call from 
-                            //between two awaits to after the final await produces BL0012
     }
 
     private void OnTimerElapsed(object? sender, System.Timers.ElapsedEventArgs eventArgs)
