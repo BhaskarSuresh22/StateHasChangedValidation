@@ -61,6 +61,8 @@
 
         onParametersSetAsyncStatus = "Completed";
         StateHasChanged();
+
+        await Task.Delay(100);
     }
 
     private void RunSynchronousEventHandler()
