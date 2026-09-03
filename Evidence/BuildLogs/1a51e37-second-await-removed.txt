@@ -1,0 +1,8 @@
+Commit: 1a51e37a484bb67175dc317527ef4e2d01751a27
+SDK version: 11.0.100-preview.7.26381.103
+BL0012 warning count: 3
+
+BL0012 warnings:
+C:\Users\BhaskarSuresh\AppData\Local\Temp\StateHasChangedValidation-1a51e37\StateHasChangedSample\StateHasChangedSample\Components\Pages\StateHasChangedDemo.razor(43,9): warning BL0012: StateHasChanged is unnecessary in method 'OnInitialized' and can be removed. [C:\Users\BhaskarSuresh\AppData\Local\Temp\StateHasChangedValidation-1a51e37\StateHasChangedSample\StateHasChangedSample\StateHasChangedSample.csproj]
+C:\Users\BhaskarSuresh\AppData\Local\Temp\StateHasChangedValidation-1a51e37\StateHasChangedSample\StateHasChangedSample\Components\Pages\StateHasChangedDemo.razor(71,9): warning BL0012: StateHasChanged is unnecessary in method 'RunSynchronousEventHandler' and can be removed. [C:\Users\BhaskarSuresh\AppData\Local\Temp\StateHasChangedValidation-1a51e37\StateHasChangedSample\StateHasChangedSample\StateHasChangedSample.csproj]
+C:\Users\BhaskarSuresh\AppData\Local\Temp\StateHasChangedValidation-1a51e37\StateHasChangedSample\StateHasChangedSample\Components\Pages\StateHasChangedDemo.razor(52,9): warning BL0012: StateHasChanged is unnecessary in method 'OnInitializedAsync' and can be removed. [C:\Users\BhaskarSuresh\AppData\Local\Temp\StateHasChangedValidation-1a51e37\StateHasChangedSample\StateHasChangedSample\StateHasChangedSample.csproj]

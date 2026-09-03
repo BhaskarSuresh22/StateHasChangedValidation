@@ -1,0 +1,6 @@
+Commit: 14d3e3760d8dc0f7fbf48e808192590cb39b6d42
+SDK version: 11.0.100-preview.7.26381.103
+BL0012 warning count: 1
+
+BL0012 warnings:
+C:\Users\BhaskarSuresh\AppData\Local\Temp\StateHasChangedValidation-14d3e37\StateHasChangedSample\StateHasChangedSample\Components\Pages\StateHasChangedDemo.razor(77,9): warning BL0012: StateHasChanged is unnecessary in method 'RunAsyncPhases' and can be removed. [C:\Users\BhaskarSuresh\AppData\Local\Temp\StateHasChangedValidation-14d3e37\StateHasChangedSample\StateHasChangedSample\StateHasChangedSample.csproj]

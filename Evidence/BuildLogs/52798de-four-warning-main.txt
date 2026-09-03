@@ -1,0 +1,9 @@
+Commit: 52798dead1ab7ddbf895e82f41609593655204f5
+SDK version: 11.0.100-preview.7.26381.103
+BL0012 warning count: 4
+
+BL0012 warnings:
+D:\asp\StateHasChangedValidation\StateHasChangedSample\StateHasChangedSample\Components\Pages\StateHasChangedDemo.razor(69,9): warning BL0012: StateHasChanged is unnecessary in method 'RunSynchronousEventHandler' and can be removed. [D:\asp\StateHasChangedValidation\StateHasChangedSample\StateHasChangedSample\StateHasChangedSample.csproj]
+D:\asp\StateHasChangedValidation\StateHasChangedSample\StateHasChangedSample\Components\Pages\StateHasChangedDemo.razor(63,9): warning BL0012: StateHasChanged is unnecessary in method 'OnParametersSetAsync' and can be removed. [D:\asp\StateHasChangedValidation\StateHasChangedSample\StateHasChangedSample\StateHasChangedSample.csproj]
+D:\asp\StateHasChangedValidation\StateHasChangedSample\StateHasChangedSample\Components\Pages\StateHasChangedDemo.razor(43,9): warning BL0012: StateHasChanged is unnecessary in method 'OnInitialized' and can be removed. [D:\asp\StateHasChangedValidation\StateHasChangedSample\StateHasChangedSample\StateHasChangedSample.csproj]
+D:\asp\StateHasChangedValidation\StateHasChangedSample\StateHasChangedSample\Components\Pages\StateHasChangedDemo.razor(52,9): warning BL0012: StateHasChanged is unnecessary in method 'OnInitializedAsync' and can be removed. [D:\asp\StateHasChangedValidation\StateHasChangedSample\StateHasChangedSample\StateHasChangedSample.csproj]

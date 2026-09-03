@@ -1,0 +1,5 @@
+Commit: 26f626216a976c0c801e9c53e348d1847ee73bea
+SDK version: 11.0.100-preview.7.26381.103
+BL0012 warning count: 0
+
+BL0012 warnings:
